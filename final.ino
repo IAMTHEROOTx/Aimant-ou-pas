@@ -29,20 +29,20 @@ void ecouteDuReseauRS485(){
     Serial.write(' ');
     
     /*
-    if (H == addr && B == 0x01) { // Si je reçoit une trame avec l'adresse 200
-      envoyerTrame(addr, voie1);  // Envoi de la trame pour voie 1
+    if (H == addr && B == 0x01) { 
+      envoyerTrame(addr, voie1);  
     } 
     //if (inByte == 0x31)
-    else if (H == addr && B == 0x02) {  // Adresse 200, voie 2
-      envoyerTrame(addr, voie2);  // Envoi de la trame pour voie 2
+    else if (H == addr && B == 0x02) {  
+      envoyerTrame(addr, voie2);  
     }
   }
   */
 }
 
 void capteurHall(){
-  Wire.beginTransmission(0x3D);//0x3D adresse
-  Wire.write(3);//mettre sous tension tous les capteurs
+  Wire.beginTransmission(0x3D);//0x3D adress
+  Wire.write(3);
   Wire.endTransmission();
 }
 
@@ -52,7 +52,7 @@ bool aimantOuPas(int valeurCapteur, int valeurCapteur2) {
   } else if (valeurCapteur2 > valeurParDefaultV2 || valeurCapteur2 < valeurParDefaultV2) {
     return true; 
   }
-  return false; // Aucun aimant détecté
+  return false; 
 }
 
 void envoyerTrame(byte adresse, byte voie, byte donneeRecue) {
